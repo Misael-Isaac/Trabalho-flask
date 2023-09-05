@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/netflixfavicon.ico') }}">
+    <title>Mudar Tema</title>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/netflix-logo.png') }}" alt="Netflix">
+        <nav>
+            <ul><!-- links para as defs que chamam as páginas de início (index) e de logout -->
+                <li><a href="{{ url_for('home') }}">Início</a></li>
+                <li><a href="{{ url_for('logout') }}">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="caixa">
+
+        <section class="box">
+            <form method="post" action="{{ url_for('modificar_tema', nome_tema=partema.nome) }}" class="formulario">
+                <h1>Modificar Tema</h1>
+                <div class="camp">
+                    <h2>{{ partema.nome }}:</h2>
+                    <input type="hidden" name="form_id" value="form1">
+                    <input class="entrada" type="text" name="novo_nome" id="novo_nome" placeholder="Nome do tema" required>
+                    <button type="submit" class="botao">Atualizar</button>
+                </div>
+            
+            </form>
+            <form action="{{ url_for('modificar_tema', nome_tema=partema.nome) }}" method="post">
+                <input type="hidden" name="form_id" value="form2">
+                <button type="submit" class="botao">Excluir</button>
+            </form>
+        </section>
+
+    </main>
+
+</body>
+</html>

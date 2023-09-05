@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage do Netflix</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/netflixfavicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/netflix-logo.png') }}" alt="Netflix">
+        <nav>
+            <ul>
+                <li><a href="/">Início</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="catalog">
+        <section>
+            <!-- variável parMensagem que vem do main.py pela def dashboard()
+                e que é enviada para cá por meio do parâmetro da função render_template -->
+            <p>{{ parMensagem }}</p>
+        </section>
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>    
