@@ -159,7 +159,21 @@ def modificar_tema(nome_tema):
     return conteudo
     
 
-
+@app.route("/adicionar_serie", methods=["GET", "POST"])
+def adicionar_serie():
+    nome = request.form["nome"]
+    nome_tema = request.form["tema"]
+    imagem = request.form["imagem"]
+    sinopse = request.form["sinopse"]
+    temporadas = request.form["temporadas"]
+    avaliacao = request.form["avaliacao"]
+    elenco = request.form["elenco"]
+    serie = Serie(nome, imagem, sinopse, temporadas, avaliacao, elenco)
+    for i in catalogo:
+        if i.nome == nome_tema:
+            i.adicionar_serie(serie)
+            break
+    return render_template("dashboard.html", parCatalogo=catalogo)
 
 
 
