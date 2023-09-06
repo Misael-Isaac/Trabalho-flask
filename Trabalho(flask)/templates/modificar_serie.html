@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage do Netflix</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/netflixfavicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/netflix-logo.png') }}" alt="Netflix">
+        <nav>
+            <ul><!-- links para as defs que chamam as páginas de início (index) e de logout -->
+                <li><a href="{{ url_for('home') }}">Início</a></li>
+                <li><a href="{{ url_for('logout') }}">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="caixa">
+        <section class="box">
+            <form method="post" action="#" class="formulario">
+                <h1>Adicionar Série</h1>
+
+                <div class="camp">
+                    <h2>Nome:</h2>
+                    <input type="text" name="nome" id="nome" placeholder="Nome da Série" required>
+                    <h2>Tema:</h2>
+                    <input type="text" name="tema" id="tema" placeholder="Escreva um Tema já existente" required>
+                    <h2>Sinopse:</h2>
+                    <input type="text" name="sinopse" id="sinopse" placeholder="Sinopse" required>
+                    <h2>Temporadas:</h2>
+                    <input type="number" name="temporadas" id="temporadas" required>
+                    <h2>Avaliação:</h2>
+                    <input type="text" name="avaliacao" id="avaliacao" required>
+                    <h2>Elenco:</h2>
+                    <input type="text" name="elenco" id="elenco" required>
+                    <h2>Imagem:</h2>
+                    <input type="file" name="imagem" id="imagem" required>
+                    <button type="submit" class="botao">Adicionar</button>
+                </div>
+            </form>
+        </section>
+    </main>

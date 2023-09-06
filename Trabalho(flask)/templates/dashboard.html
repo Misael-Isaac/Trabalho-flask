@@ -48,7 +48,7 @@
                     <!-- cada tema possui o atributo .series, que é uma lista de series.
                     cada serie dessa lista é um objeto, que possui o atributo .titulo. -->
                     {% for serie in tema.series %}    
-                        <li>{{serie.titulo}}</li>
+                        <li><a href="{{ url_for('modificar_serie', nome_serie=serie.titulo) }}">{{serie.titulo}}</a></li>
                     {% endfor %}
                 {% endfor %}
             </ul>
