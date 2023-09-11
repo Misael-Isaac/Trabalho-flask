@@ -1,9 +1,12 @@
+# Nomes:Leandro Kolher, Misael Isaac e Taynan Vila Nova
+
 from flask import Flask, render_template, request, session
 # render_template para carregar arquivos html pelo flask
 # request para poder pegar os dados de formulário
 # session para poder guardar valores nas variáveis de sessão do navegador da pessoa
 from classes import Serie, Tema
 from random import choice
+
 
 app = Flask(__name__)
 # chave para criptografar as variáveis de sessão
@@ -177,12 +180,57 @@ def adicionar_serie():
 
 
 
+@app.route("/modificar_serie/<nome_serie>", methods=["GET", "POST"])
+def modificar_serie(nome_serie):
+
+    for i in catalogo:
+        for a in i.series:
+            if a.titulo == nome_serie:
+                serie = a
+                break
+    if request.method == "POST" and request.form.get("form_id") == "form_atualizar":
+        
+        if request.form["tema"]:
+            for tema in catalogo:
+                for series in tema.series:
+                    if series.titulo == serie.titulo:
+                        tema.series.remove(serie)
+                        break
+            for tema in catalogo:
+                if tema.nome == request.form["tema"]:
+                    tema.series.append(serie)
+                    break
+            
+        novo_nome = request.form["nome"]
+        nova_imagem = request.form["imagem"]
+        nova_sinopse = request.form["sinopse"]
+        novas_temporadas = request.form["temporadas"]
+        nova_avaliacao = request.form["avaliacao"]
+        novo_elenco = request.form["elenco"]
+
+        serie.titulo = novo_nome
+        serie.imagem = nova_imagem
+        serie.sinopse = nova_sinopse
+        serie.temporadas = novas_temporadas
+        serie.avaliacao = nova_avaliacao
+        serie.elenco = novo_elenco
 
 
-    
+        conteudo = render_template("dashboard.html", parCatalogo=catalogo)
 
+    elif request.method == "POST" and request.form.get("form_id") == "form_excluir":
+        for tema in catalogo:
+            for series in tema.series:
+                if series.titulo == serie.titulo:
+                    tema.series.remove(serie)
+                    break
+        conteudo = render_template("dashboard.html", parCatalogo=catalogo)
+    else:
+        conteudo = render_template("modificar_serie.html", parserie=serie)
+    return conteudo
 
+        
 
 # EXECUTAR O PROGRAMA (RODAR O SITE)
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True)     

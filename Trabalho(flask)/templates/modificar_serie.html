@@ -19,28 +19,32 @@
         </nav>
     </header>
 
-    <main class="caixa">
-        <section class="box">
-            <form method="post" action="#" class="formulario">
-                <h1>Adicionar Série</h1>
-
-                <div class="camp">
-                    <h2>Nome:</h2>
-                    <input type="text" name="nome" id="nome" placeholder="Nome da Série" required>
-                    <h2>Tema:</h2>
-                    <input type="text" name="tema" id="tema" placeholder="Escreva um Tema já existente" required>
-                    <h2>Sinopse:</h2>
-                    <input type="text" name="sinopse" id="sinopse" placeholder="Sinopse" required>
-                    <h2>Temporadas:</h2>
-                    <input type="number" name="temporadas" id="temporadas" required>
-                    <h2>Avaliação:</h2>
-                    <input type="text" name="avaliacao" id="avaliacao" required>
-                    <h2>Elenco:</h2>
-                    <input type="text" name="elenco" id="elenco" required>
-                    <h2>Imagem:</h2>
-                    <input type="file" name="imagem" id="imagem" required>
-                    <button type="submit" class="botao">Adicionar</button>
-                </div>
-            </form>
-        </section>
+    <main class="caixa_m">
+            <section class="box-x">
+                <form method="post" action="{{ url_for('modificar_serie', nome_serie=parserie.titulo) }}" class="form_dash" id="form_">
+                    <input type="hidden" name="form_id" value="form_atualizar">
+                    <h1>Modificar Série</h1>
+                    <div class="camp">
+                        <h2>Nome:</h2>
+                        <input type="text" name="nome" id="nome" placeholder="Nome da Série" required>
+                        <h2>Tema:</h2>
+                        <input type="text" name="tema" id="tema" placeholder="Escreva um Tema já existente">
+                        <h2>Sinopse:</h2>
+                        <input type="text" name="sinopse" id="sinopse" placeholder="Sinopse" required>
+                        <h2>Temporadas:</h2>
+                        <input type="number" name="temporadas" id="temporadas" required>
+                        <h2>Avaliação:</h2>
+                        <input type="text" name="avaliacao" id="avaliacao" required>
+                        <h2>Elenco:</h2>
+                        <input type="text" name="elenco" id="elenco" required>
+                        <h2>Imagem:</h2>
+                        <input type="file" name="imagem" id="imagem" required>
+                        <button type="submit" class="botao">Atualizar</button>
+                    </div>
+                </form>
+                <form action="{{ url_for('modificar_serie', nome_serie=parserie.titulo) }}" method="post">
+                    <input type="hidden" name="form_id" value="form_excluir">
+                    <button type="submit" class="botao">Excluir</button>
+                </form>
+            </section>
     </main>

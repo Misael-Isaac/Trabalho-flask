@@ -30,6 +30,18 @@ a:hover {
     
 }
 
+.caixa_m {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20% 0;
+    
+}
+
+
 .form_dash {
     background-color: rgba(8, 8, 8, 0.657);
     width: 50%;
@@ -38,6 +50,11 @@ a:hover {
     flex-direction: column;
     align-items: center;
     padding-bottom: 30px;
+}
+
+#form_ {
+    width: 600px;
+   
 }
 
 .box {
@@ -49,6 +66,18 @@ a:hover {
     flex-direction: column;
     align-items: center;
     background-color: #000;
+}
+
+.box-x {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    flex-direction: column;
+    border-radius: 30px;
+    background-color: #000;
+    padding-bottom: 30px;
 }
 
 .formulario {
@@ -225,6 +254,7 @@ nav a:hover {
 section{
     clear: both;
 }
+
 footer{
     padding: 50px 0;
     max-width: 1200px;

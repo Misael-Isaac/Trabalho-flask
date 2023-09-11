@@ -7,6 +7,8 @@ class Serie:
         self.avaliacao = avaliacao
         self.elenco = elenco
 
+    
+
 class Tema:
     def __init__(self, nome):
         self.nome = nome
